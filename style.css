@@ -1,0 +1,178 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* จัดกึ่งกลางทั้งแนวนอนและแนวตั้ง */
+body, html {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center; /* กึ่งกลางแนวนอน */
+  align-items: center;     /* กึ่งกลางแนวตั้ง */
+}
+
+
+.bg-layer {
+  position: fixed;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+
+  background:
+    radial-gradient(
+      circle at 60% 18%,
+      rgba(255, 255, 255, 0.18),
+      transparent 42%
+    ),
+    radial-gradient(
+      circle at 42% 48%,
+      rgba(120, 20, 15, 0.35),
+      transparent 55%
+    ),
+    radial-gradient(
+      circle at 50% 82%,
+      rgba(96, 16, 11, 0.45),
+      transparent 60%
+    ),
+    linear-gradient(
+      160deg,
+      #60100b 0%,
+      #4a0c09 25%,
+      #2e0806 50%,
+      #140302 72%,
+      #000000 100%
+    );
+
+  background-size: 140% 140%;
+  animation: waveMove 20s ease-in-out infinite alternate;
+
+  z-index: -1;
+  will-change: background-position, background-size;
+}
+@keyframes waveMove {
+  0% {
+    background-position: 0% 0%;
+    background-size: 140% 140%;
+  }
+  50% {
+    background-position: 50% 40%;
+    background-size: 150% 150%;
+  }
+  100% {
+    background-position: 100% 80%;
+    background-size: 140% 140%;
+  }
+}
+@media (max-width: 480px) {
+    .page {
+        padding: 30px 24px;
+    }
+}
+
+
+/* Container */
+.container {
+  text-align: center;
+  max-width: 1400px;  /* ให้กว้างพอสำหรับโลโก้ใหญ่ */
+  width: 90vw;        /* หรือให้เต็มความกว้างหน้าจอประมาณ 90% */
+  pointer-events: none;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;   /* จัดเนื้อหาเป็นแนวตั้ง */
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Logo */
+.logo {
+  font-size: 48px;
+  letter-spacing: 4px;
+}
+
+.logo span {
+  color: #000000;
+}
+
+/* Tagline */
+.tagline {
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin: 15px 0 30px;
+  opacity: 0.8;
+}
+
+/* Card */
+.card {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(8px);
+  border-radius: 14px;
+  padding: 22px;
+  margin-bottom: 30px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Button */
+.enter-btn {
+  pointer-events: auto;
+  padding: 12px 36px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #0b0b0b, #1a1a1a);
+  color: #ffffff;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  transition: background 0.35s ease, box-shadow 0.35s ease, transform 0.25s ease;
+  text-decoration: none;
+}
+.enter-btn:focus {
+  outline: none; /* ป้องกันเส้นขอบโฟกัสขึ้นตอนคลิก */
+}
+.enter-btn:hover {
+  background: linear-gradient(135deg, #f5d67b, #c9a227);
+  box-shadow: 0 12px 30px rgba(201, 162, 39, 0.45);
+  transform: translateY(-2px);
+  display: block;      /* ทำให้เป็นบล็อก */
+  margin: 0 auto;      /* ตั้ง margin ซ้ายขวาอัตโนมัติ = กึ่งกลาง */
+  transform: translateY(-2px);
+}
+
+/* Hover = ทอง */
+.enter-btn:hover {
+  background: linear-gradient(135deg, #f5d67b, #c9a227);
+  box-shadow: 0 12px 30px rgba(201, 162, 39, 0.45);
+  transform: translateY(-2px);
+}
+
+
+/* Logo Image */
+.logo-img {
+  width: 40%;  /* ให้เต็ม container */
+  pointer-events: none;
+  max-width: 1400px; /* จำกัดขนาดสูงสุด */
+  animation: logoBounce 1s ease;
+}
+
+.logo-img img {
+  width: 100%;  /* ให้ภาพเต็ม .logo-img */
+  height: auto;
+  display: block;
+  user-select: none;
+  will-change: transform;
+  transition: transform 0.2s ease;
+}
+.member {
+  display: inline-block;
+  transition: transform 0.2s ease;
+  user-select: none;
+  color: #ffffff;
+  font-size: 20px;
+  opacity: 0.8;
+}
