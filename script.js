@@ -128,7 +128,7 @@ function renderMembers() {
     // วาดการ์ด (ดึงรูปจาก image/members/ชื่อคน.jpg)
     grid.innerHTML = pageMembers.map(m => `
         <div class="card">
-            <img src="image/members/${m.name}.jpg" 
+            <img src="image/members/default.png"  
                  onerror="this.src='image/avatar.png'" 
                  alt="${m.name}">
             <h4>${m.name}</h4>
@@ -313,4 +313,5 @@ function createToastContainer() {
     div.className = 'toast-container';
     document.body.appendChild(div);
     return div;
+
 }
